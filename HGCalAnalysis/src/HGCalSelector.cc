@@ -68,13 +68,13 @@ Bool_t HGCalSelector::Process(Long64_t entry)
 
    cout << "...Filling the event multicluster, count of multicluster is  " << multicluster->size() << endl;
    for (unsigned i = 0; i < multicluster->size(); ++i) {
-       testFile3<< event->evn << "," 
-		<< multicluster->at(i).eta << ","
-                << multicluster->at(i).phi << ","
-                << multicluster->at(i).z   << ","
-		<< multicluster->at(i).pt  << ","
-                << multicluster->at(i).energy
-                << "\n";
+       testFile3 << event->evn << "," 
+		 << multicluster->at(i).eta << ","
+                 << multicluster->at(i).phi << ","
+                 << multicluster->at(i).z   << ","
+		 << multicluster->at(i).pt  << ","
+                 << multicluster->at(i).energy
+                 << "\n";
    }
   // testFile.close();
 
