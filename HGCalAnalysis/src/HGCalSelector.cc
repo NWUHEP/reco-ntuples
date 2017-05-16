@@ -15,6 +15,10 @@ void HGCalSelector::Begin(TTree * /*tree*/)
    testFile2.open("genparticles.csv");
    testFile3.open("multicluster.csv");
 
+   testFile<<"evn,x,y,z,energy"<<endl;
+   testFile2<<"evn,pid,eta,phi,pt,energy"<<endl;
+   testFile3<<"evn,eta,phi,z,pt,energy"<<endl;
+
    TString option = GetOption();
 }
 
