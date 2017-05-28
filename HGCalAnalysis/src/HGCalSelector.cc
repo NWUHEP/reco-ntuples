@@ -15,9 +15,9 @@ void HGCalSelector::Begin(TTree * /*tree*/)
    testFile2.open("genparticles.csv");
    testFile3.open("multicluster.csv");
 
-   testFile<<"evn,x,y,z,energy"<<endl;
+   testFile<<"evn,x,y,z,t,energy,layer,cell"<<endl;
    testFile2<<"evn,pid,eta,phi,pt,energy"<<endl;
-   testFile3<<"evn,eta,phi,z,pt,energy"<<endl;
+   testFile3<<"evn,eta,phi,z,pt,energy,nclus"<<endl;
 
    TString option = GetOption();
 }
@@ -50,8 +50,11 @@ Bool_t HGCalSelector::Process(Long64_t entry)
        testFile << event->evn << ","
 		<< rechits->at(i).x << "," 
                 << rechits->at(i).y << "," 
-                << rechits->at(i).z  << "," 
-                << rechits->at(i).energy 
+                << rechits->at(i).z << "," 
+                << rechits->at(i).time << ","
+		<< rechits->at(i).energy  << ","
+		<< rechits->at(i).layer << ","
+		<< rechits->at(i).cell 
                 << "\n"; 
    }
    
@@ -73,7 +76,8 @@ Bool_t HGCalSelector::Process(Long64_t entry)
                  << multicluster->at(i).phi << ","
                  << multicluster->at(i).z   << ","
 		 << multicluster->at(i).pt  << ","
-                 << multicluster->at(i).energy
+                 << multicluster->at(i).energy << ","
+		 << multicluster->at(i).nclus
                  << "\n";
    }
   // testFile.close();
