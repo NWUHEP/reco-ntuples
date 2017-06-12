@@ -74,7 +74,7 @@ class HGCalSelector : public TSelector {
         TBranch *b_event; // not
         TBranch *b_particles; 
 	TBranch *b_genparticles;
-	TBranch *b_rechits;
+	TBranch *b_rechits_raw;
         TBranch *b_cluster2d;
         TBranch *b_multicluster;
         TBranch *b_simcluster;
@@ -112,7 +112,7 @@ void HGCalSelector::Init(TTree *tree)
     fChain->SetBranchAddress("event", &event, &b_event);
     fChain->SetBranchAddress("particles", &particles, &b_particles);
     fChain->SetBranchAddress("genparticles", &genparticles, &b_genparticles);
-    fChain->SetBranchAddress("rechits", &rechits, &b_rechits);
+    fChain->SetBranchAddress("rechits_raw", &rechits, &b_rechits_raw);
     fChain->SetBranchAddress("cluster2d", &cluster2d, &b_cluster2d);
     fChain->SetBranchAddress("multicluster", &multicluster, &b_multicluster);
     fChain->SetBranchAddress("simcluster", &simcluster, &b_simcluster);
